@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-        /* The wrapper now grows with the image naturally */
+        /* The wrapper now grows with the image */
         .invite-wrapper {
             position: relative;
             width: 100%;
@@ -24,22 +24,19 @@
             margin: 0 auto;
         }
 
-        /* Parallax background sits BEHIND the wrapper */
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 900px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .invite-image {
+        /* Background image is NOT absolute anymore */
+        .parallax-bg img {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        /* Parallax movement applied to the wrapper, not the image */
+        .parallax-bg {
+            position: relative;
+            will-change: transform;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* Fade-in animation */
@@ -58,7 +55,7 @@
             transform: translateY(0);
         }
 
-        /* Button centering (no drift) */
+        /* Button centering */
         .button-row-container {
             position: absolute;
             bottom: 5%;
@@ -95,13 +92,12 @@
 
 <body>
 
-    <!-- Background image fixed behind everything -->
-    <div class="parallax-bg">
-        <img src="invite-clean.png" class="invite-image">
-    </div>
-
-    <!-- Wrapper grows naturally with content -->
     <div class="invite-wrapper">
+
+        <!-- Background image (now defines height) -->
+        <div class="parallax-bg">
+            <img src="invite-clean.png" alt="Wedding Invitation Background">
+        </div>
 
         <!-- Names -->
         <div class="fade-in" style="
@@ -204,7 +200,7 @@
         window.addEventListener("scroll", () => {
             const scrolled = window.scrollY;
             const bg = document.querySelector(".parallax-bg");
-            bg.style.transform = `translateX(-50%) translateY(${scrolled * 0.15}px)`;
+            bg.style.transform = `translateY(${scrolled * 0.15}px)`;
         });
     </script>
 
