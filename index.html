@@ -5,7 +5,6 @@
     <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
 
-    <!-- Import Cinzel -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -17,24 +16,24 @@
             overflow-x: hidden;
         }
 
+        /* The wrapper now grows with the image naturally */
         .invite-wrapper {
             position: relative;
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            overflow: hidden;
-            padding-bottom: 160%; /*matches invitation png */
         }
 
-        /* Parallax container */
+        /* Parallax background sits BEHIND the wrapper */
         .parallax-bg {
-            position: absolute;
+            position: fixed;
             top: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
-            pointer-events:none;
-            will-change: transform;
-            z-index: 0;
+            max-width: 900px;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .invite-image {
@@ -43,7 +42,7 @@
             display: block;
         }
 
-        /* Fade-in animation (4 seconds) */
+        /* Fade-in animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -51,6 +50,7 @@
             position: absolute;
             width: 100%;
             color: #5a4a4a;
+            z-index: 1;
         }
 
         .fade-in.visible {
@@ -58,14 +58,14 @@
             transform: translateY(0);
         }
 
-        /* Button centering fix */
+        /* Button centering (no drift) */
         .button-row-container {
             position: absolute;
             bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
             width: max-content;
-            z-index: 10;
+            z-index: 2;
         }
 
         .button-row {
@@ -95,12 +95,13 @@
 
 <body>
 
-    <div class="invite-wrapper">
+    <!-- Background image fixed behind everything -->
+    <div class="parallax-bg">
+        <img src="invite-clean.png" class="invite-image">
+    </div>
 
-        <!-- Parallax background -->
-        <div class="parallax-bg">
-            <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
-        </div>
+    <!-- Wrapper grows naturally with content -->
+    <div class="invite-wrapper">
 
         <!-- Names -->
         <div class="fade-in" style="
@@ -183,8 +184,8 @@
 
     </div>
 
-    <!-- Fade-in + Parallax JavaScript -->
     <script>
+        /* Fade-in logic */
         document.addEventListener("DOMContentLoaded", () => {
             const faders = document.querySelectorAll('.fade-in');
 
@@ -199,11 +200,11 @@
             faders.forEach(el => appearOnScroll.observe(el));
         });
 
-        /* Soft parallax effect */
+        /* Soft parallax */
         window.addEventListener("scroll", () => {
             const scrolled = window.scrollY;
             const bg = document.querySelector(".parallax-bg");
-            bg.style.transform = `translateY(${scrolled * 0.15}px)`;
+            bg.style.transform = `translateX(-50%) translateY(${scrolled * 0.15}px)`;
         });
     </script>
 
