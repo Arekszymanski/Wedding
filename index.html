@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
@@ -103,28 +103,29 @@
             background: rgba(130, 95, 130, 0.95);
         }
 
-        /* ⭐ MOBILE OVERRIDE: Fill the entire screen, zoom in, remove borders */
+        /* ⭐ MOBILE OVERRIDE: Full-bleed hero image (Option B) */
         @media (max-width: 600px) {
             .invite-wrapper {
                 width: 100%;
-                height: 100vh;      /* Fill screen height */
+                height: 100vh;      /* Fill entire screen */
                 aspect-ratio: auto; /* Unlock ratio */
             }
 
             .parallax-bg img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;  /* Zoom in to fill */
+                object-fit: cover;  /* Zoom in aggressively */
+                object-position: center; /* Keep centered */
             }
 
-            /* Slightly smaller text for mobile */
+            /* Adjust text scale for mobile */
             .fade-in {
                 font-size: 0.9rem;
             }
 
             /* Buttons slightly higher for thumb reach */
             .button-row-container {
-                bottom: 8%;
+                bottom: 10%;
             }
         }
     </style>
