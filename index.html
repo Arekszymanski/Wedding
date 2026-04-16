@@ -14,6 +14,7 @@
             padding: 0;
             font-family: "Cinzel", serif;
             background-color: #f8f3e9;
+            overflow-x: hidden;
         }
 
         .invite-wrapper {
@@ -21,6 +22,18 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Parallax container */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            will-change: transform;
+            z-index: -1;
         }
 
         .invite-image {
@@ -29,7 +42,7 @@
             display: block;
         }
 
-        /* Fade-in animation (now 4 seconds) */
+        /* Fade-in animation (4 seconds) */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -44,15 +57,19 @@
             transform: translateY(0);
         }
 
-        /* Buttons overlayed on the PNG */
-        .button-row {
+        /* Button centering fix */
+        .button-row-container {
             position: absolute;
             bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
+            width: max-content;
+            z-index: 10;
+        }
+
+        .button-row {
             display: flex;
             gap: 20px;
-            z-index: 10;
         }
 
         .invite-button {
@@ -78,7 +95,11 @@
 <body>
 
     <div class="invite-wrapper">
-        <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
+
+        <!-- Parallax background -->
+        <div class="parallax-bg">
+            <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
+        </div>
 
         <!-- Names -->
         <div class="fade-in" style="
@@ -102,15 +123,15 @@
             right: 0;
             line-height: 1.6;
             letter-spacing: 0.18em;
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             transition-delay: 2s;
         ">
             INVITE YOU TO JOIN THEM IN THE CELEBRATION OF THEIR MARRIAGE
         </div>
 
-        <!-- LEFT SIDE (THURSDAY + BIG 26 + AUGUST 2027) -->
+        <!-- LEFT SIDE -->
         <div class="fade-in" style="
-            top: 62%;
+            top: 63%;
             right: 50%;
             width: 50%;
             text-align: right;
@@ -133,9 +154,9 @@
             AUGUST 2027
         </div>
 
-        <!-- RIGHT SIDE (TIME + VENUE + ADDRESS) -->
+        <!-- RIGHT SIDE -->
         <div class="fade-in" style="
-            top: 62%;
+            top: 68%;
             left: 50%;
             width: 50%;
             text-align: left;
@@ -150,16 +171,18 @@
             RIDING MILL, NE44 6BN
         </div>
 
-        <!-- Buttons OVER the PNG -->
-        <div class="button-row fade-in" style="transition-delay: 8s;">
-            <a class="invite-button" href="[MENU LINK]">Menu</a>
-            <a class="invite-button" href="[RSVP LINK]">RSVP</a>
-            <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
+        <!-- Buttons -->
+        <div class="button-row-container fade-in" style="transition-delay: 8s;">
+            <div class="button-row">
+                <a class="invite-button" href="[MENU LINK]">Menu</a>
+                <a class="invite-button" href="[RSVP LINK]">RSVP</a>
+                <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
+            </div>
         </div>
 
     </div>
 
-    <!-- Fade-in JavaScript -->
+    <!-- Fade-in + Parallax JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const faders = document.querySelectorAll('.fade-in');
@@ -173,6 +196,13 @@
             }, { threshold: 0.2 });
 
             faders.forEach(el => appearOnScroll.observe(el));
+        });
+
+        /* Soft parallax effect */
+        window.addEventListener("scroll", () => {
+            const scrolled = window.scrollY;
+            const bg = document.querySelector(".parallax-bg");
+            bg.style.transform = `translateY(${scrolled * 0.15}px)`;
         });
     </script>
 
