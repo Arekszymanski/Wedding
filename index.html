@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-        /* The wrapper now grows with the image */
+        /* Wrapper grows naturally with the image */
         .invite-wrapper {
             position: relative;
             width: 100%;
@@ -24,14 +24,14 @@
             margin: 0 auto;
         }
 
-        /* Background image is NOT absolute anymore */
+        /* Background image defines height */
         .parallax-bg img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Parallax movement applied to the wrapper, not the image */
+        /* Parallax movement applied to the wrapper */
         .parallax-bg {
             position: relative;
             will-change: transform;
@@ -55,14 +55,15 @@
             transform: translateY(0);
         }
 
-        /* Button centering */
+        /* Button centering — FIXED */
         .button-row-container {
-            position: absolute;
+            position: fixed; /* anchor to viewport, not wrapper */
             bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
             width: max-content;
-            z-index: 2;
+            z-index: 10;
+            pointer-events: auto;
         }
 
         .button-row {
@@ -94,7 +95,7 @@
 
     <div class="invite-wrapper">
 
-        <!-- Background image (now defines height) -->
+        <!-- Background image -->
         <div class="parallax-bg">
             <img src="invite-clean.png" alt="Wedding Invitation Background">
         </div>
@@ -169,15 +170,15 @@
             RIDING MILL, NE44 6BN
         </div>
 
-        <!-- Buttons -->
-        <div class="button-row-container fade-in" style="transition-delay: 8s;">
-            <div class="button-row">
-                <a class="invite-button" href="[MENU LINK]">Menu</a>
-                <a class="invite-button" href="[RSVP LINK]">RSVP</a>
-                <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
-            </div>
-        </div>
+    </div>
 
+    <!-- Buttons OUTSIDE wrapper (fixes drift) -->
+    <div class="button-row-container fade-in" style="transition-delay: 8s;">
+        <div class="button-row">
+            <a class="invite-button" href="[MENU LINK]">Menu</a>
+            <a class="invite-button" href="[RSVP LINK]">RSVP</a>
+            <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
+        </div>
     </div>
 
     <script>
