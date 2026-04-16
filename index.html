@@ -9,20 +9,23 @@
             margin: 0;
             padding: 0;
             font-family: "Georgia", serif;
-            background-color: #f8f3e9; /* soft background behind image */
+            background-color: #f8f3e9;
         }
 
+        /* This wrapper ensures the image scales to screen width */
         .invite-wrapper {
-            max-width: 800px;          /* optional: limit width on big screens */
-            margin: 0 auto;            /* center on page */
+            width: 100%;
+            overflow: hidden;
         }
 
+        /* This makes the image scale correctly on ALL devices */
         .invite-image {
             width: 100%;
             height: auto;
             display: block;
         }
 
+        /* Buttons under the image */
         .button-row {
             display: flex;
             justify-content: center;
@@ -31,12 +34,12 @@
         }
 
         .invite-button {
-            width: 140px; /* same length for all buttons */
+            width: 140px; /* equal length buttons */
             text-align: center;
 
             padding: 14px 0;
-            background: rgba(150, 120, 150, 0.85); /* soft mauve */
-            color: #f8f3e9; /* warm cream */
+            background: rgba(150, 120, 150, 0.85);
+            color: #f8f3e9;
             text-decoration: none;
             border-radius: 10px;
             font-size: 1.1rem;
@@ -54,15 +57,13 @@
 <body>
 
     <div class="invite-wrapper">
-        <!-- Full invite image -->
         <img src="invite.png" alt="Wedding Invitation" class="invite-image">
+    </div>
 
-        <!-- Buttons under the invite -->
-        <div class="button-row">
-            <a class="invite-button" href="[MENU LINK]">Menu</a>
-            <a class="invite-button" href="[RSVP LINK]">RSVP</a>
-            <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
-        </div>
+    <div class="button-row">
+        <a class="invite-button" href="[MENU LINK]">Menu</a>
+        <a class="invite-button" href="[RSVP LINK]">RSVP</a>
+        <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
     </div>
 
 </body>
