@@ -55,6 +55,15 @@
             transform: translateY(0);
         }
 
+        .fade-in-buttons {
+            opacity: 0;
+            transition: opacity 4s ease-out;
+        }
+
+        .fade-in-buttons.visible {
+            opacity: 1;
+        }
+
         /* Button centering — FIXED */
         .button-row-container {
             position: fixed; /* anchor to viewport, not wrapper */
@@ -173,7 +182,7 @@
     </div>
 
     <!-- Buttons OUTSIDE wrapper (fixes drift) -->
-    <div class="button-row-container fade-in" style="transition-delay: 8s;">
+    <div class="button-row-container fade-in-buttons" style="transition-delay: 8s;">
         <div class="button-row">
             <a class="invite-button" href="[MENU LINK]">Menu</a>
             <a class="invite-button" href="[RSVP LINK]">RSVP</a>
