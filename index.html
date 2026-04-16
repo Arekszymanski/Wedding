@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
 
+    <!-- Import Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: "Georgia", serif;
+            font-family: "Cinzel", serif;
             background-color: #f8f3e9;
         }
 
-        /* Wrapper that ensures the image scales correctly */
         .invite-wrapper {
             position: relative;
             width: 100%;
@@ -76,25 +78,54 @@
     <div class="invite-wrapper">
         <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
 
-        <!-- Fade-in text positioned over the clean PNG -->
-        <div class="fade-in" style="top: 32%;">
-            <h1 style="margin:0; font-size:2.4rem;">EMMA & AREK</h1>
+        <!-- Names (Cinzel, spacing visually matched to Canva 195) -->
+        <div class="fade-in" style="
+            top: 29%;
+            letter-spacing: 0.19em;
+            font-size: 2.6rem;
+            font-weight: 700;
+        ">
+            EMMA & AREK
         </div>
 
-        <div class="fade-in" style="top: 45%;">
-            <h2 style="margin:0; font-size:1.8rem;">Thursday 26 August 2027</h2>
+        <!-- Date (Cinzel, spacing visually matched to Canva 443) -->
+        <div class="fade-in" style="
+            top: 42%;
+            letter-spacing: 0.44em;
+            font-size: 1.4rem;
+            font-weight: 400;
+        ">
+            THURSDAY 26 AUGUST 2027
         </div>
 
-        <div class="fade-in" style="top: 55%;">
-            <h2 style="margin:0; font-size:1.6rem;">13:30 PM</h2>
+        <!-- Time -->
+        <div class="fade-in" style="
+            top: 51%;
+            letter-spacing: 0.44em;
+            font-size: 1.3rem;
+            font-weight: 400;
+        ">
+            13:30 PM
         </div>
 
-        <div class="fade-in" style="top: 66%;">
-            <h2 style="margin:0; font-size:1.6rem;">Healey Barn</h2>
+        <!-- Venue -->
+        <div class="fade-in" style="
+            top: 61%;
+            letter-spacing: 0.44em;
+            font-size: 1.4rem;
+            font-weight: 400;
+        ">
+            HEALEY BARN
         </div>
 
-        <div class="fade-in" style="top: 73%;">
-            <p style="margin:0; font-size:1.2rem;">Riding Mill, NE44 6BN</p>
+        <!-- Address -->
+        <div class="fade-in" style="
+            top: 69%;
+            letter-spacing: 0.44em;
+            font-size: 1.1rem;
+            font-weight: 400;
+        ">
+            RIDING MILL, NE44 6BN
         </div>
     </div>
 
