@@ -16,30 +16,35 @@
             overflow-x: hidden;
         }
 
-        /* Wrapper grows naturally with the image */
+        /* LOCK THE WRAPPER TO THE EXACT PNG RATIO */
         .invite-wrapper {
             position: relative;
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
+            aspect-ratio: 1240 / 1748; /* EXACT ratio of your PNG */
+            overflow: hidden;
         }
 
-        /* Background image defines height */
+        /* Background image fills the wrapper */
         .parallax-bg img {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        /* Parallax movement applied to the wrapper */
         .parallax-bg {
-            position: relative;
+            position: absolute;
+            inset: 0;
             will-change: transform;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* Fade-in animation */
+        /* Fade-in animation for text */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -47,7 +52,7 @@
             position: absolute;
             width: 100%;
             color: #5a4a4a;
-            z-index: 1;
+            z-index: 2;
         }
 
         .fade-in.visible {
@@ -55,6 +60,7 @@
             transform: translateY(0);
         }
 
+        /* Fade-in for buttons (NO transform) */
         .fade-in-buttons {
             opacity: 0;
             transition: opacity 4s ease-out;
@@ -64,15 +70,14 @@
             opacity: 1;
         }
 
-        /* Button centering — FIXED */
+        /* Buttons INSIDE the wrapper so they scale with the image */
         .button-row-container {
-            position: fixed; /* anchor to viewport, not wrapper */
+            position: absolute;
             bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
             width: max-content;
-            z-index: 10;
-            pointer-events: auto;
+            z-index: 3;
         }
 
         .button-row {
@@ -123,7 +128,7 @@
 
         <!-- Middle paragraph -->
         <div class="fade-in" style="
-            top: 45%;
+            top: 40%;
             text-align: center;
             max-width: 70%;
             margin: 0 auto;
@@ -139,7 +144,7 @@
 
         <!-- LEFT SIDE -->
         <div class="fade-in" style="
-            top: 66%;
+            top: 63%;
             right: 50%;
             width: 50%;
             text-align: right;
@@ -164,7 +169,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="fade-in" style="
-            top: 69%;
+            top: 68%;
             left: 50%;
             width: 50%;
             text-align: left;
@@ -179,15 +184,15 @@
             RIDING MILL, NE44 6BN
         </div>
 
-    </div>
-
-    <!-- Buttons OUTSIDE wrapper (fixes drift) -->
-    <div class="button-row-container fade-in-buttons" style="transition-delay: 8s;">
-        <div class="button-row">
-            <a class="invite-button" href="[MENU LINK]">Menu</a>
-            <a class="invite-button" href="[RSVP LINK]">RSVP</a>
-            <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
+        <!-- Buttons INSIDE the wrapper -->
+        <div class="button-row-container fade-in-buttons" style="transition-delay: 8s;">
+            <div class="button-row">
+                <a class="invite-button" href="[MENU LINK]">Menu</a>
+                <a class="invite-button" href="[RSVP LINK]">RSVP</a>
+                <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
+            </div>
         </div>
+
     </div>
 
     <script>
