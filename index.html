@@ -8,8 +8,10 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('invite.png') center/cover no-repeat fixed;
-            height: 100vh;
+            background: url('invite.png') top center no-repeat;
+            background-size: contain; /* show the whole image */
+            background-attachment: scroll; /* allow scrolling */
+            min-height: 200vh; /* ensures page is tall enough to scroll */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -25,19 +27,19 @@
 
         .invite-button {
             padding: 14px 26px;
-            background: rgba(150, 120, 150, 0.85); /* soft mauve */
-            color: #f8f3e9; /* warm cream */
+            background: rgba(150, 120, 150, 0.85);
+            color: #f8f3e9;
             text-decoration: none;
             border-radius: 10px;
             font-size: 1.1rem;
             font-family: "Georgia", serif;
-            border: 1px solid rgba(120, 90, 120, 0.4); /* subtle outline */
-            backdrop-filter: blur(3px); /* softens background behind button */
+            border: 1px solid rgba(120, 90, 120, 0.4);
+            backdrop-filter: blur(3px);
             transition: 0.2s ease;
         }
 
         .invite-button:hover {
-            background: rgba(130, 95, 130, 0.95); /* deeper mauve */
+            background: rgba(130, 95, 130, 0.95);
         }
     </style>
 </head>
