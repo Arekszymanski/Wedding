@@ -1,64 +1,170 @@
-<div class="invite-wrapper">
-    <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
 
-    <!-- Names -->
-    <div class="fade-in" style="
-        top: 23%;
-        letter-spacing: 0.19em;
-        font-size: 2.4rem;
-        font-weight: 700;
-        text-align: center;
-    ">
-        EMMA & AREK
+    <!-- Import Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Cinzel", serif;
+            background-color: #f8f3e9;
+        }
+
+        .invite-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .invite-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            position: absolute;
+            width: 100%;
+            color: #5a4a4a;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0 40px;
+        }
+
+        .invite-button {
+            width: 140px;
+            text-align: center;
+            padding: 14px 0;
+            background: rgba(150, 120, 150, 0.85);
+            color: #f8f3e9;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            border: 1px solid rgba(120, 90, 120, 0.4);
+            backdrop-filter: blur(3px);
+            transition: 0.2s ease;
+        }
+
+        .invite-button:hover {
+            background: rgba(130, 95, 130, 0.95);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="invite-wrapper">
+        <img src="invite-clean.png" class="invite-image" alt="Wedding Invitation Background">
+
+        <!-- Names -->
+        <div class="fade-in" style="
+            top: 23%;
+            text-align: center;
+            letter-spacing: 0.19em;
+            font-size: 2.4rem;
+            font-weight: 700;
+        ">
+            EMMA & AREK
+        </div>
+
+        <!-- Middle paragraph -->
+        <div class="fade-in" style="
+            top: 31%;
+            text-align: center;
+            max-width: 70%;
+            margin: 0 auto;
+            line-height: 1.6;
+            letter-spacing: 0.18em;
+            font-size: 0.95rem;
+        ">
+            INVITE YOU TO JOIN THEM IN THE CELEBRATION OF THEIR MARRIAGE
+        </div>
+
+        <!-- LEFT SIDE (THURSDAY + BIG 26 + AUGUST 2027) -->
+        <div class="fade-in" style="
+            top: 45%;
+            left: 0;
+            width: 50%;
+            text-align: right;
+            padding-right: 4%;
+            letter-spacing: 0.44em;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        ">
+            THURSDAY<br>
+            <span style="
+                font-size: 2.8rem;
+                letter-spacing: 0.05em;
+                font-weight: 700;
+                display: block;
+                margin: 0.4rem 0;
+            ">
+                26
+            </span>
+            AUGUST 2027
+        </div>
+
+        <!-- RIGHT SIDE (TIME + VENUE + ADDRESS) -->
+        <div class="fade-in" style="
+            top: 45%;
+            right: 0;
+            width: 50%;
+            text-align: left;
+            padding-left: 4%;
+            letter-spacing: 0.44em;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        ">
+            13:30 PM<br>
+            HEALEY BARN<br>
+            RIDING MILL, NE44 6BN
+        </div>
     </div>
 
-    <!-- Middle paragraph -->
-    <div class="fade-in" style="
-        top: 31%;
-        letter-spacing: 0.18em;
-        font-size: 0.95rem;
-        font-weight: 400;
-        text-align: center;
-        max-width: 70%;
-        margin: 0 auto;
-        line-height: 1.6;
-    ">
-        INVITE YOU TO JOIN THEM IN THE CELEBRATION OF THEIR MARRIAGE
+    <!-- Buttons -->
+    <div class="button-row">
+        <a class="invite-button" href="[MENU LINK]">Menu</a>
+        <a class="invite-button" href="[RSVP LINK]">RSVP</a>
+        <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
     </div>
 
-    <!-- LEFT SIDE (THURSDAY + BIG 26 + AUGUST 2027) -->
-    <div class="fade-in" style="
-        top: 45%;
-        left: 0;
-        width: 50%;
-        text-align: right;
-        padding-right: 4%;
-        letter-spacing: 0.44em;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4;
-    ">
-        THURSDAY<br>
-        <span style="font-size: 2.8rem; letter-spacing: 0.05em; font-weight: 700; display:block; margin: 0.4rem 0;">
-            26
-        </span>
-        AUGUST 2027
-    </div>
+    <!-- Fade-in JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faders = document.querySelectorAll('.fade-in');
 
-    <!-- RIGHT SIDE (TIME + VENUE + ADDRESS) -->
-    <div class="fade-in" style="
-        top: 45%;
-        right: 0;
-        width: 50%;
-        text-align: left;
-        padding-left: 4%;
-        letter-spacing: 0.44em;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4;
-    ">
-        13:30 PM<br>
-        HEALEY BARN<br>
-        RIDING MILL, NE44 6BN
-    </div>
-</div>
+            const appearOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            faders.forEach(el => appearOnScroll.observe(el));
+        });
+    </script>
+
+</body>
+</html>
