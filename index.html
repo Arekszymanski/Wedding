@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
 
     <!-- Import Cinzel -->
@@ -29,11 +29,11 @@
             display: block;
         }
 
-        /* Fade-in animation */
+        /* Fade-in animation (now 4 seconds) */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            transition: opacity 4s ease-out, transform 4s ease-out;
             position: absolute;
             width: 100%;
             color: #5a4a4a;
@@ -87,6 +87,7 @@
             letter-spacing: 0.19em;
             font-size: 2.4rem;
             font-weight: 700;
+            transition-delay: 0s;
         ">
             EMMA & AREK
         </div>
@@ -102,6 +103,7 @@
             line-height: 1.6;
             letter-spacing: 0.18em;
             font-size: 0.95rem;
+            transition-delay: 2s;
         ">
             INVITE YOU TO JOIN THEM IN THE CELEBRATION OF THEIR MARRIAGE
         </div>
@@ -116,6 +118,7 @@
             letter-spacing: 0.44em;
             font-size: 0.95rem;
             line-height: 1.4;
+            transition-delay: 4s;
         ">
             THURSDAY<br>
             <span style="
@@ -140,6 +143,7 @@
             letter-spacing: 0.44em;
             font-size: 0.95rem;
             line-height: 1.4;
+            transition-delay: 6s;
         ">
             13:30 PM<br>
             HEALEY BARN<br>
@@ -147,7 +151,7 @@
         </div>
 
         <!-- Buttons OVER the PNG -->
-        <div class="button-row">
+        <div class="button-row fade-in" style="transition-delay: 8s;">
             <a class="invite-button" href="[MENU LINK]">Menu</a>
             <a class="invite-button" href="[RSVP LINK]">RSVP</a>
             <a class="invite-button" href="[DRESS CODE LINK]">Dress Code</a>
