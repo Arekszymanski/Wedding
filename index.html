@@ -103,37 +103,59 @@
             background: rgba(130, 95, 130, 0.95);
         }
 
+        /* ⭐ Vertical line (new) */
+        .vertical-line {
+            position: absolute;
+            left: 50%;
+            top: 52%; /* Adjust if needed */
+            transform: translateX(-50%);
+            width: 2px;
+            height: 22%;
+            background-color: rgba(90, 74, 74, 0.6);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 4s ease-out;
+        }
+
+        .vertical-line.visible {
+            opacity: 1;
+        }
+
         /* ⭐ MOBILE OVERRIDE: Full-bleed hero image (Option B) */
         @media (max-width: 600px) {
             .invite-wrapper {
                 width: 100%;
-                height: 100vh;      /* Fill entire screen */
-                aspect-ratio: auto; /* Unlock ratio */
+                height: 100vh;
+                aspect-ratio: auto;
             }
 
             .parallax-bg img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;  /* Zoom in aggressively */
-                object-position: center; /* Keep centered */
+                object-fit: cover;
+                object-position: center;
             }
 
-            /* Adjust text scale for mobile */
             .fade-in {
                 font-size: 0.9rem;
             }
 
-            /* Buttons slightly higher for thumb reach */
             .button-row-container {
                 bottom: 10%;
             }
-            
+
             .invite-button {
-                width: 110px;      /* smaller */
-                padding: 10px 0;   /* shorter height */
-                font-size: 0.9rem; /* smaller text */
+                width: 110px;
+                padding: 10px 0;
+                font-size: 0.9rem;
+            }
+
+            .vertical-line {
+                height: 28%;
+                width: 1.5px;
             }
         }
+
     </style>
 </head>
 
@@ -173,6 +195,9 @@
         ">
             INVITE YOU TO JOIN THEM IN THE CELEBRATION OF THEIR MARRIAGE
         </div>
+
+        <!-- ⭐ Vertical line (fades in after middle paragraph) -->
+        <div class="vertical-line fade-in" style="transition-delay: 3s;"></div>
 
         <!-- LEFT SIDE -->
         <div class="fade-in" style="
