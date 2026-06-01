@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Dress Code</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Cinzel", serif;
+            background-color: #f8f3e9;
+            overflow-x: hidden;
+        }
+
+        .menu-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 1240 / 1748;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            inset: 0;
+            will-change: transform;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .parallax-bg img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 4s ease-out, transform 4s ease-out;
+            position: absolute;
+            width: 100%;
+            color: #4f3f3f;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-buttons {
+            opacity: 0;
+            transition: opacity 4s ease-out;
+        }
+
+        .fade-in-buttons.visible {
+            opacity: 1;
+        }
+
+        .button-row-container {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            z-index: 3;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .invite-button {
+            width: 140px;
+            text-align: center;
+            padding: 14px 0;
+            background: rgba(150, 120, 150, 0.85);
+            color: #f8f3e9;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            border: 1px solid rgba(120, 90, 120, 0.4);
+            backdrop-filter: blur(3px);
+            transition: 0.2s ease;
+        }
+
+        .invite-button:hover {
+            background: rgba(130, 95, 130, 0.95);
+        }
+
+        @media (max-width: 600px) {
+            .menu-wrapper {
+                width: 100%;
+                height: 100vh;
+                aspect-ratio: auto;
+            }
+
+            .parallax-bg img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .fade-in {
+                font-size: 0.9rem;
+            }
+
+            .button-row-container {
+                bottom: 10%;
+            }
+
+            .invite-button {
+                width: 110px;
+                padding: 10px 0;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu-wrapper">
+
+        <!-- Background -->
+        <div class="parallax-bg">
+            <img src="menu.png" alt="Menu Background">
+        </div>
+
+        <!-- MENU TITLE -->
+        <div class="fade-in" style="
+            top: 11%;
+            font-size: 2.2rem;
+            letter-spacing: 0.20em;
+            font-weight: 700;
+            transition-delay: 0s;
+        ">
+            MENU
+        </div>
+
+        <!-- MAIN COURSE -->
+        <div class="fade-in" style="
+            top: 20%;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            transition-delay: 1.5s;
+        ">
+            WHAT SHOULD I WEAR?<br>
+            EVEN THOUGH WE ARE HOPING FOR A WARM SUMMERS DAY<br>
+            WE KINDLY ENCOURAGE GUESTS TO WEAR FORMAL ATTIRE<br>
+        </div>
+
+        <!-- DESSERT -->
+        <div class="fade-in" style="
+            top: 40%;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            transition-delay: 3s;
+        ">
+            PLEASE NOTE<br>
+            THE BRIDESMAIDS WILL BE WEARING PINK;
+            WE KINDLY ASK FOR GUESTS TO AVOID THIS COLOUR!
+        </div>
+
+
+        <!-- BUTTONS -->
+        <div class="button-row-container fade-in-buttons" style="transition-delay: 7.5s;">
+            <div class="button-row">
+                <a class="invite-button" href="index.html">Home</a>
+                <a class="invite-button" href="https://forms.gle/pUBZpHj9zbjycgn99">RSVP</a>
+                <a class="invite-button" href="menu.html">Menu</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faders = document.querySelectorAll('.fade-in, .fade-in-buttons');
+
+            const appearOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            faders.forEach(el => appearOnScroll.observe(el));
+        });
+
+        window.addEventListener("scroll", () => {
+            const scrolled = window.scrollY;
+            const bg = document.querySelector(".parallax-bg");
+            bg.style.transform = `translateY(${scrolled * 0.15}px)`;
+        });
+    </script>
+
+</body>
+</html>
